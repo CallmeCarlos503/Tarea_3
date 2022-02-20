@@ -41,24 +41,20 @@
                 $Descuento = 0.00;
 
                 $Cantidad = $_POST["txtCantidad"];
-                if ($Cantidad >= 1 || $Cantidad <= 5) {
+                if ($Cantidad >= 1 && $Cantidad <= 5) {
                     $Descuento = 0.10;
-                } else {
-                    if ($Cantidad >= 6 || $Cantidad <= 10) {
-                        $Descuento = 0.20;
-                    } else {
-                        if ($Cantidad >= 11 || $Cantidad <= 15) {
-                            $Descuento = 0.30;
-                        } else {
-                            if ($Cantidad >= 16 || $Cantidad <= 20) {
-                                $Descuento = 0.40;
-                            } else {
-                                if ($Cantidad >= 21) {
-                                    $Descuento = 0.50;
-                                }
-                            }
-                        }
-                    }
+                }
+                if ($Cantidad >= 6 && $Cantidad <= 10) {
+                    $Descuento = 0.20;
+                }
+                if ($Cantidad >= 11 && $Cantidad <= 15) {
+                    $Descuento = 0.30;
+                }
+                if ($Cantidad >= 16 && $Cantidad <= 20) {
+                    $Descuento = 0.40;
+                }
+                if ($Cantidad >= 21) {
+                    $Descuento = 0.50;
                 }
             }
             ?>
@@ -67,11 +63,19 @@
             ?>
                 <div class="alert alert-primary" role="alert">
 
+                <?php
+                    $Descontado=$Gasto*$Descuento;
+                ?>
+                    Su Cantidad de articulos : <?php echo "" . $Cantidad; ?>
+                    <br>
+                    Su Cantidad Comprada es de : <?php echo "$" . $Gasto; ?>
+                    <br>
                     Su descuento por el : <?php echo "%" . $Descuento * 100.00; ?>
                     <br>
-                    Descuento Aplicado: <?php echo "$" . $Gasto * $Descuento; ?>
+
+                    Descuento Aplicado: <?php echo "$" . $Descontado; ?>
                     <br>
-                    Total a pagar: <?php echo "$" . $Gasto - ($Descuento  * $Gasto); ?>
+                    Total a pagar: <?php echo "$" . $Gasto - $Descontado; ?>
                 </div>
             <?php
             }
