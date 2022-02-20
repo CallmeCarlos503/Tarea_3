@@ -43,19 +43,29 @@
                 $Cantidad = $_POST["txtCantidad"];
                 if ($Cantidad >= 1 && $Cantidad <= 5) {
                     $Descuento = 0.10;
+                } else {
+                    if ($Cantidad >= 6 && $Cantidad <= 10) {
+                        $Descuento = 0.20;
+                    } else {
+                        if ($Cantidad >= 11 && $Cantidad <= 15) {
+                            $Descuento = 0.30;
+                        } else {
+
+                            if ($Cantidad >= 16 && $Cantidad <= 20) {
+                                $Descuento = 0.40;
+                            } 
+                            else {
+                                if ($Cantidad >= 21) {
+                                    $Descuento = 0.50;
+                                }
+                            }
+                        }
+
+                    }
                 }
-                if ($Cantidad >= 6 && $Cantidad <= 10) {
-                    $Descuento = 0.20;
-                }
-                if ($Cantidad >= 11 && $Cantidad <= 15) {
-                    $Descuento = 0.30;
-                }
-                if ($Cantidad >= 16 && $Cantidad <= 20) {
-                    $Descuento = 0.40;
-                }
-                if ($Cantidad >= 21) {
-                    $Descuento = 0.50;
-                }
+
+
+                
             }
             ?>
             <?php
@@ -63,9 +73,9 @@
             ?>
                 <div class="alert alert-primary" role="alert">
 
-                <?php
-                    $Descontado=$Gasto*$Descuento;
-                ?>
+                    <?php
+                    $Descontado = $Gasto * $Descuento;
+                    ?>
                     Su Cantidad de articulos : <?php echo "" . $Cantidad; ?>
                     <br>
                     Su Cantidad Comprada es de : <?php echo "$" . $Gasto; ?>
