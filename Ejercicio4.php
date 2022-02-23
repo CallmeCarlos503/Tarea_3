@@ -22,8 +22,8 @@
                     <br>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Ingrese la cantidad total</label>
-                        <input type="number" step="0.01" min="0.01" class="form-control" id="exampleFormControlInput1" placeholder="1.00" name="txtDinero">
-                        <br>
+                        <input required type="number" step="0.01" min="0.01" class="form-control" id="exampleFormControlInput1" placeholder="1.00" name="txtDinero">
+                        <br> 
                         <center>
                             <input type="submit" value="Calcular" name="btn_Calcular" class="btn btn-warning">
                         </center>
